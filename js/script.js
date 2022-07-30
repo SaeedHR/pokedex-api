@@ -25,7 +25,7 @@
     let getPokemon = data => {
         INPUT.onkeyup = e => {
             POCKEMONBOX.innerHTML = "";
-            let inputValue = e.target.value;
+            let inputValue = lowerCaseName(e.target.value);
             console.log(inputValue)
             console.log(data)
 
