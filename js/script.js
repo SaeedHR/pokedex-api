@@ -24,16 +24,37 @@
             })
 
     }
-  // create sort List
-  const pokemonSortList = (sortList) => {
-    for (let i = 0; i < sortList.length; i++) {
-      let li = createEl('li'), a = createEl('a', sortList[i]);
-      a.setAttribute('href', '#');
-      li.appendChild(a);
-      UL.appendChild(li);
+    // create sort List
+    const pokemonSortList = (sortList) => {
+        for (let i = 0; i < sortList.length; i++) {
+            let li = createEl('li'), a = createEl('a', sortList[i]);
+            a.setAttribute('href', '#');
+            li.appendChild(a);
+            UL.appendChild(li);
+        }
     }
-  }
 
+    // pokemonlist Clickhandler
+    const listHandlerClick = (...sortList) => {
+        let listLink = document.querySelectorAll("ul a");
+        for (let i = 0; i < listLink.length; i++) {
+            listLink[i].onclick = e => {
+                INPUT.value = "";
+                let onePokemonName;
+                for (let i = 0; i < sortList.length; i++) {
+                    const pokemonName = e.target.innerText;
+                    if (pokemonName === sortList[i]) {
+                        onePokemonName = sortList[i];
+                        break;
+                    }
+
+                }
+                console.log(onePokemonName)
+                UL.innerHTML = "";
+            }
+
+        }
+    }
     // Get and input Keyup
     let getPokemon = data => {
         INPUT.onkeyup = e => {
@@ -42,7 +63,9 @@
             const sortList = [].sort();
             for (let i = 0; i < data.length; i++)  data[i].includes(inputValue) ? sortList.push(data[i]) : '';
             UL.innerHTML = "";
-            pokemonSortList(sortList)
+            pokemonSortList(sortList);
+            listHandlerClick(...sortList)
+
             inputValue.length < 1 ? UL.innerHTML = "" : '';
 
         }
