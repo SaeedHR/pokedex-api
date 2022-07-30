@@ -11,9 +11,12 @@
         fetch(`https:pokeapi.co/api/v2/pokemon/`)
             .then(response => response.json())
             .then(data => {
-                const newList = []
-                data.results.map(data => newList.push(data.name))
-                getPokemon(newList)
+                if (pokemonName) console.log(data);
+                else {
+                    const newList = []
+                    data.results.map(data => newList.push(data.name))
+                    getPokemon(newList)
+                }
 
             })
             .catch((err) => {
@@ -49,8 +52,10 @@
                     }
 
                 }
-                console.log(onePokemonName)
+
                 UL.innerHTML = "";
+                requestFetch(onePokemonName)
+
             }
 
         }
