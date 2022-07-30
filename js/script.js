@@ -24,7 +24,15 @@
             })
 
     }
-
+  // create sort List
+  const pokemonSortList = (sortList) => {
+    for (let i = 0; i < sortList.length; i++) {
+      let li = createEl('li'), a = createEl('a', sortList[i]);
+      a.setAttribute('href', '#');
+      li.appendChild(a);
+      UL.appendChild(li);
+    }
+  }
 
     // Get and input Keyup
     let getPokemon = data => {
@@ -33,7 +41,10 @@
             let inputValue = lowerCaseName(e.target.value);
             const sortList = [].sort();
             for (let i = 0; i < data.length; i++)  data[i].includes(inputValue) ? sortList.push(data[i]) : '';
-            console.log(sortList)
+            UL.innerHTML = "";
+            pokemonSortList(sortList)
+            inputValue.length < 1 ? UL.innerHTML = "" : '';
+
         }
     }
     requestFetch("")
