@@ -135,3 +135,25 @@ p:last-child {
 .hide {
     display: none;
 }
+
+/* Smartphon */
+
+@media (min-width:1400px) {
+    .container {
+        max-width: 60%;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .pokemonOutput, .closeBox {
+        margin-top: 10px;
+    }
+
+}
+
+
+@media screen {
+    * {
+        transition: all .6s ease-in-out
+    }
+}
