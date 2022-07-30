@@ -10,7 +10,12 @@
     let requestFetch = pokemonName => {
         fetch(`https:pokeapi.co/api/v2/pokemon/`)
             .then(response => response.json())
-            .then(data => getPokemon(data))
+            .then(data => {
+                const newList = []
+                data.results.map(data => newList.push(data.name))
+                getPokemon(newList)
+
+            })
             .catch((err) => {
                 POCKEMONBOX.innerHTML = `
             <h4>Pokemon not found 😞</h4>
@@ -26,9 +31,9 @@
         INPUT.onkeyup = e => {
             POCKEMONBOX.innerHTML = "";
             let inputValue = lowerCaseName(e.target.value);
-            console.log(inputValue)
-            console.log(data)
-
+            const sortList = [].sort();
+            for (let i = 0; i < data.length; i++)  data[i].includes(inputValue) ? sortList.push(data[i]) : '';
+            console.log(sortList)
         }
     }
     requestFetch("")
