@@ -69,3 +69,47 @@ body {
     transition: transform 0.2s ease-out;
 
 }
+
+/* Pokemon Box */
+.pokemonBox {
+    position: relative;
+    flex: 1;
+
+}
+
+.pokemonBox .pokemonOutput {
+    padding: 1rem;
+    border: 1px solid #000;
+    box-shadow: 4px 3px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #ebebeb;
+
+}
+
+.pokemonBox img {
+    width: 100px;
+    margin: 2rem 5px;
+}
+
+.pokemonInfos {
+    margin-bottom: 2rem;
+
+}
+
+p:first-of-type {
+    margin-bottom: 1.5em;
+}
+
+p:last-child {
+    margin-top: 1rem;
+}
+
+.pokemonInfos>p {
+    line-height: 1.5em;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pokemonInfos span {
+    border: 1.5px solid #000;
+    padding: 3px 0.5em;
+}
