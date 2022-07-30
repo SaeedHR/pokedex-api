@@ -10,7 +10,7 @@
     let requestFetch = pokemonName => {
         fetch(`https:pokeapi.co/api/v2/pokemon/`)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => getPokemon(data))
             .catch((err) => {
                 POCKEMONBOX.innerHTML = `
             <h4>Pokemon not found 😞</h4>
@@ -18,6 +18,18 @@
                 console.log("Pokemon not found", err);
             })
 
+    }
+
+
+    // Get and input Keyup
+    let getPokemon = data => {
+        INPUT.onkeyup = e => {
+            POCKEMONBOX.innerHTML = "";
+            let inputValue = e.target.value;
+            console.log(inputValue)
+            console.log(data)
+
+        }
     }
     requestFetch("")
 }
