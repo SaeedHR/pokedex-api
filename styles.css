@@ -19,9 +19,53 @@ body {
     margin: 2rem auto;
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 /* SearchBox */
 .searchBox input {
     margin-right: 2rem;
     padding: 0.5rem 1em;
     border-radius: 10px 10px;
+}
+
+
+.searchBox ul {
+    list-style: none;
+    overflow: hidden;
+    max-width: 86%;
+}
+
+.searchBox li {
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: #000;
+
+}
+
+.searchBox li:last-child {
+    border-bottom: 1px solid #000;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.searchBox a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+}
+
+.searchBox a:hover {
+    color: #fff;
+}
+
+.searchBox li:focus, .searchBox li:hover {
+    background: #BDBDBD;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-out;
+
 }
