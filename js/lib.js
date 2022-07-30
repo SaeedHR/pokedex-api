@@ -1,3 +1,6 @@
+// toUpperCase charAt
+let capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
+
 // toLowerCase
 let lowerCaseName = string => string.toLowerCase().trim();
 

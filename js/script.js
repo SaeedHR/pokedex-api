@@ -8,10 +8,10 @@
 
     // request Fetch
     let requestFetch = pokemonName => {
-        fetch(`https:pokeapi.co/api/v2/pokemon/`)
+        fetch(`https:pokeapi.co/api/v2/pokemon/${pokemonName}`)
             .then(response => response.json())
             .then(data => {
-                if (pokemonName) console.log(data);
+                if (pokemonName) createPokemonBox(data);
                 else {
                     const newList = []
                     data.results.map(data => newList.push(data.name))
@@ -74,6 +74,22 @@
             inputValue.length < 1 ? UL.innerHTML = "" : '';
 
         }
+    }
+    // create Pokemon Box
+    let createPokemonBox = data => {
+        POCKEMONBOX.innerHTML = `
+    <div class="pokemonOutput">
+      <span class="closeBox">X</span>
+      <h2>${capitalizeFirstLetter(data.name)}</h2>
+        <div class="pokemonInfos">
+          <img src="${data.sprites.other["official-artwork"].front_default}" alt="Pokemon name"/>
+          <p>Types: <span>${data.types.map(data => data.type.name)}</span></p>
+          <p>Weight: ${data.weight}</p>
+          <p>Height : ${data.height}</p>
+          <p>Ailities : ${data.abilities.map(data => data.ability.name)}</p>
+        </div>
+        </div>`;
+
     }
     requestFetch("")
 }
