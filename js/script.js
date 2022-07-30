@@ -75,6 +75,9 @@
 
         }
     }
+    // close Button
+    let closeBox = () => document.querySelector('.closeBox').onclick = e => e.target.parentElement.classList = "hide";
+
     // create Pokemon Box
     let createPokemonBox = data => {
         POCKEMONBOX.innerHTML = `
@@ -89,6 +92,7 @@
           <p>Ailities : ${data.abilities.map(data => data.ability.name)}</p>
         </div>
         </div>`;
+        closeBox();
 
     }
     requestFetch("")
